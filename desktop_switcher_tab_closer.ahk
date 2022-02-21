@@ -22,6 +22,16 @@ Reload
 Return
 ;ENDOFSCRIPT 
 
+Tippy(tipsHere, wait:=333)
+{
+ToolTip, %tipsHere%,,,8
+SetTimer, notip, %wait% ;--in 1/3 seconds by default, remove the tooltip
+}
+notip:
+	ToolTip,,,,8
+	;removes the tooltip
+return
+
 closerAndSwitcher()
 {
 	Sendinput {space}
@@ -36,11 +46,14 @@ if WinActive("ahk_exe chrome.exe")
 else ifWinNotActive ("ahk_exe chrome.exe")
 	WinActivate ahk_exe chrome.exe
 	closerAndSwitcher()
+Tippy("switched to desktop 1")
+return
 }
 
 switchToDesktop2()
 {
 sendinput ^#{Right}
+Tippy("switched to desktop 2")
 }
 
 
@@ -54,4 +67,4 @@ sendinput ^#{Right}
 
 
 
-; mm m, Sendinput 
+; mm m, Sendinput  
