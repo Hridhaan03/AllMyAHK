@@ -32,20 +32,24 @@ notip:
 	;removes the tooltip
 return
 
-closerAndSwitcher()
-{
-	Sendinput {space}
-	Sendinput {m}
-	Sendinput ^#{Left}
-}
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;start;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 switchToDesktop1()
 {
 if WinActive("ahk_exe chrome.exe")
-	closerAndSwitcher() 
-else ifWinNotActive ("ahk_exe chrome.exe")
+	{
+	Sendinput !+{m}
+	Sendinput {space}
+	sleep 10
+	Sendinput ^#{Left}
+	return
+	}	
+else
 	WinActivate ahk_exe chrome.exe
-	closerAndSwitcher()
+	Sendinput !+{m}
+	Sendinput {space}
+	sleep 10
+	Sendinput ^#{Left}
 Tippy("switched to desktop 1")
 return
 }
@@ -54,14 +58,23 @@ switchToDesktop2()
 {
 sendinput ^#{Right}
 Tippy("switched to desktop 2")
+return
 }
 
+
+Unmuter()
+{
+Sendinput !+{m}
+Tippy("Unmuted", 500)
+return
+
+}
 
 
 
 `:: switchToDesktop1()
 +`:: switchToDesktop2()
-
+Insert:: Unmuter()
 
 
 

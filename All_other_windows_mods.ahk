@@ -23,8 +23,8 @@ Return
 ;ENDOFSCRIPT 
 
 ; Volume up down and mute controls
-F2:: send {Volume_Down 1};can also change this to mouse button 4 and 5, as given in the bottom lines ↓
-F3:: send {Volume_Up 1};can also change this to mouse button 4 and 5, as given in the bottom lines ↓
+F2:: send {Volume_Down 1} ;can also change this to mouse button 4 and 5, as given in the bottom lines ↓
+F3:: send {Volume_Up 1} ;can also change this to mouse button 4 and 5, as given in the bottom lines ↓
 F4:: send {Volume_Mute}
 ; XButton1:: send {Volume_Down 1}
 ; XButton2:: send {Volume_Up 1} 
